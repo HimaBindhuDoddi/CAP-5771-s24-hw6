@@ -188,8 +188,8 @@ def spectral_clustering():
     
     # Plot SSE scores against sigma values
     plt.figure(figsize=(8, 6))
-    plt.plot(sigmas, sse_scores, marker='o', color='r')
-    plt.title('SSE Scores vs Sigma Values')
+    plt.plot(sigmas, sse_scores, marker='^', color='b')
+    plt.title('SSE  vs Sigma Values for spectral clustering')
     plt.xlabel('Sigma')
     plt.ylabel('SSE')
     plt.grid(True)
@@ -223,8 +223,8 @@ def spectral_clustering():
     plt.figure(figsize=(8, 6))
     plot_ARI = plt.scatter(cluster_data[best_dataset_index * 1000: (best_dataset_index + 1) * 1000, 0], 
                 cluster_data[best_dataset_index * 1000: (best_dataset_index + 1) * 1000, 1], 
-                c=plots_values[best_dataset_index]["computed_labels"], cmap='viridis')
-    plt.title(f'Clustering for Dataset {best_dataset_index} (Highest ARI) with k value :{best_k} and sigma: 0.1')
+                c=plots_values[best_dataset_index]["computed_labels"], cmap='jet')
+    plt.title(f'(Highest ARI) - Clustering for Dataset {best_dataset_index}  with k value :{best_k} and sigma: 0.1')
     plt.suptitle('Spectral Clustering')
     plt.xlabel('Feature 1')
     plt.ylabel('Feature 2')
@@ -245,8 +245,8 @@ def spectral_clustering():
     plt.figure(figsize=(8, 6))
     plot_SSE = plt.scatter(cluster_data[best_dataset_index_sse * 1000: (best_dataset_index_sse + 1) * 1000, 0], 
                 cluster_data[best_dataset_index_sse * 1000: (best_dataset_index_sse + 1) * 1000, 1], 
-                c=plots_values[best_dataset_index_sse]["computed_labels"], cmap='viridis')
-    plt.title(f'Clustering for Dataset {best_dataset_index_sse} (Lowest SSE) with k value :{best_k} and sigma: 0.1')
+                c=plots_values[best_dataset_index_sse]["computed_labels"], cmap='jet')
+    plt.title(f'(Lowest SSE) - Clustering for Dataset {best_dataset_index_sse} with k value :{best_k} and sigma: 0.1')
     plt.suptitle('Spectral Clustering')
     plt.xlabel('Feature 1')
     plt.ylabel('Feature 2')
@@ -262,9 +262,9 @@ def spectral_clustering():
     for i, group_info in plots_values.items():
         plot_eig = plt.plot(np.sort(group_info["eig_values"]), label=f'Dataset {i+1}')
     
-    plt.title('Eigenvalues Plot')
+    plt.title('Plot for Eigenvalues')
     plt.suptitle('Spectral Clustering')
-    plt.xlabel('Eigenvalue Index')
+    plt.xlabel('Index of Eigenvalue ')
     plt.ylabel('Eigenvalue')
     plt.legend()
     plt.grid(True)
